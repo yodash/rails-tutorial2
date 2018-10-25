@@ -1,0 +1,50 @@
+<1>rails serverコマンドの実行後のエラー。
+
+  15: from bin/rails:3:in `<main>'
+  14: from bin/rails:3:in `load'
+  13: from /Users/yo-dash/rails/environment/toy_app/bin/spring:15:in `<top (required)>'
+  12: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:70:in `require'
+  11: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/2.5.0/rubygems/core_ext/kernel_require.rb:70:in `require'
+  10: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `<top (required)>'
+   9: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/binstub.rb:31:in `load'
+   8: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/bin/spring:49:in `<top (required)>'
+   7: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/client.rb:30:in `run'
+   6: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/client/command.rb:7:in `call'
+   5: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `call'
+   4: from /Users/yo-dash/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/spring-2.0.2/lib/spring/client/rails.rb:28:in `load'
+   3: from /Users/yo-dash/rails/environment/toy_app/bin/rails:8:in `<top (required)>'
+   2: from /Users/yo-dash/rails/environment/toy_app/bin/rails:8:in `require_relative'
+   1: from /Users/yo-dash/rails/environment/toy_app/config/boot.rb:4:in `<top (required)>'
+
+<1-solve>
+  gem 'bootsnap', require: false
+
+  をgem fileに入れる
+  https://github.com/Shopify/bootsnap/issues/73
+
+<2> heroku create 実行後のエラー
+  remote:  !
+  remote:  !     Could not detect rake tasks
+  remote:  !     ensure you can run `$ bundle exec rake -P` against your app
+  remote:  !     and using the production group of your Gemfile.
+  remote:  !     rake aborted!
+  remote:  !     LoadError: cannot load such file -- bootsnap/setup
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/config/boot.rb:4:in `require'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/config/boot.rb:4:in `<top (required)>'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/config/application.rb:1:in `require_relative'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/config/application.rb:1:in `<top (required)>'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/Rakefile:4:in `require_relative'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/Rakefile:4:in `<top (required)>'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/rake_module.rb:29:in `load'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/rake_module.rb:29:in `load_rakefile'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:703:in `raw_load_rakefile'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:104:in `block in load_rakefile'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:186:in `standard_exception_handling'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:103:in `load_rakefile'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:82:in `block in run'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:186:in `standard_exception_handling'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/lib/rake/application.rb:80:in `run'
+  remote:  !     /tmp/build_e333e9444d49b7f1a05a46571b6379f5/vendor/bundle/ruby/2.5.0/gems/rake-12.3.1/exe/rake:27:in `<top (required)>'
+  remote:  !     vendor/bundle/bin/rake:17:in `load'
+  remote:  !     vendor/bundle/bin/rake:17:in `<main>'
+  remote:  !
